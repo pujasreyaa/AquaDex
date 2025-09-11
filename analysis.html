@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis - AquaDex</title>
+
+  <!-- Google Font for modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #00334e; /* deep ocean blue */
+      color: #fff;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: #002a44;
+    }
+
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 20px;
+      color: #00bcd4;
+    }
+
+    .navbar .logo img {
+      height: 42px;
+      width: 42px;
+      border-radius: 50%;
+    }
+
+    .navbar nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar nav a:hover {
+      color: #00bcd4;
+    }
+
+    .navbar nav a.active {
+      border-bottom: 2px solid #00bcd4;
+      padding-bottom: 4px;
+      color: #00bcd4;
+    }
+
+    .navbar .sign-in {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid #ffffff;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .navbar .sign-in:hover {
+      background: #00bcd4;
+      color: #002a44;
+      border: 1px solid #00bcd4;
+    }
+
+    /* Analysis Section */
+    .analysis-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .analysis-section h2 {
+      font-size: 30px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .analysis-section p {
+      font-size: 16px;
+      color: #cfd8dc;
+      margin-bottom: 40px;
+    }
+
+    /* Cards container */
+    .analysis-cards {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    /* Individual Card */
+    .analysis-card {
+      background: #e6f0fa;
+      color: #00334e;
+      padding: 30px;
+      width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      position: relative; /* Added for file input positioning */
+    }
+
+    .analysis-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    }
+
+    .analysis-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #002a44;
+    }
+
+    .analysis-card p {
+      font-size: 14px;
+      color: #37474f;
+      margin-bottom: 20px;
+    }
+
+    /* File name display */
+    .file-name {
+      font-size: 12px;
+      color: #002a44;
+      margin-top: 10px;
+      min-height: 18px;
+    }
+
+    /* Hidden file input */
+    .file-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    /* Buttons */
+    .analysis-card button {
+      background: #002a44;
+      color: #ffffff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      position: relative;
+      z-index: 2; /* Above file input */
+    }
+
+    .analysis-card button:hover {
+      background: #00bcd4;
+      color: #002a44;
+      transform: scale(1.05);
+    }
+
+    /* Capture button specific style */
+    .capture-btn {
+      background: #00bcd4;
+      color: #002a44;
+    }
+
+    .capture-btn:hover {
+      background: #002a44;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.jpg" alt="AquaDex Logo">
+      <span>AquaDex</span>
+    </div>
+      
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="analysis.html" class="active">Analysis</a>
+      <a href="#">Database</a>
+      <a href="#">History</a>
+    </nav>
+    <button class="sign-in">Sign In</button>
+  </header>
+
+  <!-- Analysis Section -->
+  <section class="analysis-section">
+    <h2>Marine Organism Detection &amp; Analysis</h2>
+    <p>Upload microscopic images or capture new samples to identify marine organisms</p>
+
+    <div class="analysis-cards">
+      <!-- Upload Card -->
+      <div class="analysis-card">
+        <h3>Upload Microscopic Image</h3>
+        <p>Upload existing microscopic images for organism detection and analysis</p>
+        
+        <!-- Hidden file input -->
+        <input type="file" class="file-input" id="fileUpload" accept="image/*">
+        
+        <button id="chooseFileBtn">Choose File</button>
+        <div class="file-name" id="fileName">No file chosen</div>
+      </div>
+
+      <!-- Capture Card -->
+      <div class="analysis-card">
+        <h3>Capture Sample</h3>
+        <p>Connect to microscope camera to capture live samples for real-time analysis</p>
+        <button class="capture-btn">Start Capture</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Get elements
+    const fileInput = document.getElementById('fileUpload');
+    const fileNameDisplay = document.getElementById('fileName');
+    const chooseFileBtn = document.getElementById('chooseFileBtn');
+
+    // Handle file selection
+    fileInput.addEventListener('change', function() {
+      if (this.files && this.files[0]) {
+        fileNameDisplay.textContent = this.files[0].name;
+        fileNameDisplay.style.color = '#002a44';
+      } else {
+        fileNameDisplay.textContent = 'No file chosen';
+        fileNameDisplay.style.color = '#002a44';
+      }
+    });
+
+    // Optional: Trigger file input when button is clicked
+    chooseFileBtn.addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent form submission if inside form
+      fileInput.click();
+    });
+  </script>
+
+</body>
+</html>

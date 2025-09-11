@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaDex</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="AquaDex Logo">
+      <span>AquaDex</span>
+    </div>
+      
+    <nav>
+      <a href="home.html" class="active">Home</a>
+      <a href="analysis.html">Analysis</a>
+      <a href="#">Database</a>
+      <a href="#">History</a>
+      
+    </nav>
+    <a href="signin.html" class="sign-in">Sign In</a>
+    
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1>Smart vision for blue intelligence</h1>
+      <p>
+        "Discover the unseen ocean — AquaDex uses AI-powered microscopy to detect,
+        classify, and catalog marine microorganisms in real time, empowering
+        researchers and educators to monitor aquatic biodiversity with precision."
+      </p>
+      <a href="#" class="learn-link">Learn how it works ›</a>
+    </div>
+    <div class="hero-right">
+      <img src="microbe.png"alt="Marine organism">
+    </div>
+  </section>
+
+  <!-- Stats row -->
+  <section class="stats">
+    <div class="stat-card">
+      <h2>12,847</h2>
+      <p>Detected Organisms</p>
+    </div>
+    <div class="stat-card">
+      <h2>2,156</h2>
+      <p>Unique Species</p>
+    </div>
+    <div class="stat-card">
+      <h2>94.2%</h2>
+      <p>Average Confidence</p>
+    </div>
+  </section>
+  <!-- Upload Section -->
+<section class="upload-section">
+  <h2>Marine Organism Detection &amp; Analysis</h2>
+  <p>Upload microscopic images or capture new samples to identify marine organisms</p>
+  <div class="upload-cards">
+    <div class="upload-card">
+      <h3>Upload Microscopic Image</h3>
+      <p>Select and upload images for organism detection and analysis.</p>
+
+      <!-- Hidden file input -->
+      <input type="file" id="fileUpload" style="display:none;" onchange="document.getElementById('fileName').textContent = this.files[0]?.name || 'No file chosen';">
+
+      <!-- Custom blue button -->
+      <button onclick="document.getElementById('fileUpload').click()">Choose File</button>
+
+      <!-- File name display -->
+      <p id="fileName">No file chosen</p>
+    </div>
+
+    <div class="upload-card">
+      <h3>Capture Sample</h3>
+      <p>Connect to microscope camera to capture live samples for analysis.</p>
+      <button>Start Capture</button>
+    </div>
+  </div>
+</section>
+
+  <!-- Summary Stats -->
+  <section class="summary-stats">
+    <div class="summary-card">
+      <h3>1,247</h3>
+      <p>Total Samples</p>
+    </div>
+    <div class="summary-card">
+      <h3>8,932</h3>
+      <p>Organisms Found</p>
+    </div>
+    <div class="summary-card">
+      <h3>156</h3>
+      <p>Species Identified</p>
+    </div>
+    <div class="summary-card">
+      <h3>94.2%</h3>
+      <p>Avg Confidence</p>
+    </div>
+  </section>
+
+  <!-- Organism Table -->
+  <section class="organism-table">
+    <div class="table-controls">
+      <input type="text" placeholder="Search organisms...">
+      <select>
+        <option>Sort by Count</option>
+        <option>Sort by Confidence</option>
+        <option>Sort by Size</option>
+      </select>
+      <button>Filter</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Thumbnail</th>
+          <th>Organism</th>
+          <th>Count</th>
+          <th>Size</th>
+          <th>Confidence</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="https://via.placeholder.com/80" alt="Thumb"></td>
+          <td>Coscinodiscus sp.</td>
+          <td>12</td>
+          <td>104 μm</td>
+          <td>89%</td>
+          <td>Phytoplankton</td>
+        </tr>
+        <tr>
+          <td><img src="https://via.placeholder.com/80" alt="Thumb"></td>
+          <td>Copepod sp.</td>
+          <td>6</td>
+          <td>250 μm</td>
+          <td>92%</td>
+          <td>Zooplankton</td>
+        </tr>
+        <tr>
+          <td><img src="https://via.placeholder.com/80" alt="Thumb"></td>
+          <td>Diatom A</td>
+          <td>31</td>
+          <td>45 μm</td>
+          <td>81%</td>
+          <td>Phytoplankton</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <button>Prev</button>
+      <button class="active">1</button>
+      <button>2</button>
+      <button>Next</button>
+    </div>
+  </section>
+
+  <!-- Recent Samples -->
+  <section class="recent-samples">
+    <h2>Recent Samples</h2>
+    <div class="sample-cards">
+      <div class="sample-card">
+        <img src="https://via.placeholder.com/200x120" alt="Sample">
+        <h4>Plankton Sample A</h4>
+        <p>2 hours ago · 23 organisms · 96.8%</p>
+      </div>
+      <div class="sample-card">
+        <img src="https://via.placeholder.com/200x120" alt="Sample">
+        <h4>Coastal Water B</h4>
+        <p>5 hours ago · 31 organisms · 91.4%</p>
+      </div>
+      <div class="sample-card">
+        <img src="https://via.placeholder.com/200x120" alt="Sample">
+        <h4>Deep Sea Sample</h4>
+        <p>1 day ago · 18 organisms · 89.2%</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-section">
+      <h4>Marine Organism Dex</h4>
+      <p>AI-powered detection and classification of aquatic biodiversity.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Features</h4>
+      <p>Real-time Analysis<br>Database Access<br>Reports</p>
+    </div>
+    <div class="footer-section">
+      <h4>Support</h4>
+      <p>Documentation<br>Help Center<br>Community</p>
+    </div>
+    <div class="footer-section">
+      <h4>Connect</h4>
+      <p>Twitter · LinkedIn</p>
+    </div>
+  </footer>
+</body>
+</html>

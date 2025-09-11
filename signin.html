@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - AquaDex</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #00334e;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .signin-box {
+      background: #fff;
+      color: #333;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      width: 350px;
+      text-align: center;
+    }
+    .signin-box h2 {
+      margin-bottom: 20px;
+      color: #002a44;
+    }
+    .signin-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .signin-box button {
+      background: #002a44;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .signin-box button:hover {
+      background: #014d73;
+    }
+    .signin-box p {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    .signin-box a {
+      color: #00bcd4;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="signin-box">
+    <h2>Sign In</h2>
+    <form>
+      <input type="text" placeholder="Email or Username" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Sign In</button>
+    </form>
+    <p>Don't have an account? <a href="signup.html">Create one</a></p>
+  </div>
+</body>
+</html>
