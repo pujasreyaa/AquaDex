@@ -16,13 +16,23 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #002f47;
+  background: #002a44;
   padding: 15px 40px;
 }
 
 .logo {
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
   font-size: 20px;
+  color: #00bcd4;
+}
+.navbar .logo img {
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+
 }
 
 .navbar nav {
@@ -31,14 +41,21 @@ body {
 }
 
 .navbar nav a {
+  margin: 0 15px;
   color: #fff;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s;
+}
+.navbar nav a:hover {
+  color: #00bcd4;
 }
 
 .navbar nav a.active {
   font-weight: bold;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #00bcd4;
+  padding-bottom: 4px;
+  color: #00bcd4;
 }
 
 .sign-in {
@@ -48,6 +65,12 @@ body {
   padding: 6px 14px;
   border-radius: 6px;
   cursor: pointer;
+  transition: 0.3s;
+}
+.navbar .sign-in:hover {
+  background: #00bcd4;
+  color: #002a44;
+  border: 1px solid #00bcd4;
 }
 
 /* Hero section */

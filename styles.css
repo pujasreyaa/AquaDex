@@ -7,8 +7,8 @@
 
 body {
   font-family:'Poppins', sans-serif;
-  background: #fff;
-  color: #00334e;
+  background-color: #002a44;
+  color: #ffffff;
   line-height: 1.6;
 }
 
@@ -134,9 +134,10 @@ body {
 .stats {
   display: flex;
   justify-content: space-around;
-  background: #fff;
+  background: #ffffff;
   padding: 40px 20px;
   text-align: center;
+  color: #000;
 }
 
 .stat-card h2 {
@@ -153,12 +154,13 @@ body {
 .upload-section {
   text-align: center;
   padding: 60px 20px;
-  background: #003b5c;
-  color: white;
 }
 
 .upload-section h2 {
-  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 40px;
 }
 
 .upload-section p {
