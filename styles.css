@@ -6,10 +6,10 @@
 }
 
 body {
-  font-family:'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #002a44;
   color: #ffffff;
-  line-height: 1.6;
+  padding-top: 70px; /* ✅ Push content below fixed navbar */
 }
 
 /* Navbar */
@@ -17,21 +17,28 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #002a44;
+  background-color: #002a44;
   padding: 15px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+  /* ❌ removed margin-left */
 }
 
 .logo {
-  display: flex;            /* align logo + text */
+  display: flex;
   align-items: center;
-  gap: 10px;                 /* spacing between image & text */
+  gap: 10px;
   font-weight: 700;
   font-size: 20px;
   color: #00bcd4;
 }
 
 .logo img {
-  height: 42px;             /* adjust this size */
+  height: 42px;
   width: 42px;
   border-radius: 50%;
   object-fit: contain;
@@ -43,187 +50,122 @@ body {
 }
 
 .navbar nav a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
-  color: #ffff;
   font-weight: 500;
   transition: color 0.3s;
+  position: relative;
 }
-.navbar nav a:hover{
+
+.navbar nav a:hover {
   color: #00bcd4;
 }
 
 .navbar nav a.active {
   font-weight: bold;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #00bcd4;
+  padding-bottom: 4px;
+  color: #00bcd4;
 }
 
 .sign-in {
   background: transparent;
   border: 1px solid #fff;
-  color: #fff;
+  color: #ffffff;
   padding: 6px 14px;
   border-radius: 6px;
   cursor: pointer;
   transition: 0.3s;
 }
-.sign-in:hover{
+
+.sign-in:hover {
   background: #00bcd4;
   color: #002a44;
   border: 1px solid #00bcd4;
 }
 
-/* Hero */
+/* Hero Section - Full Background Blur */
 .hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #003b5c;
-  padding: 60px 40px;
-  color: white;
-}
-
-.hero-left {
-  flex: 1;
-  padding-right: 20px;
-}
-
-.hero-left h1 {
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-
-.hero-left p {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.learn-link {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.hero-right {
   position: relative;
-  flex: 1;
+  height: 70vh;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 0;
 }
 
-.hero-right img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-.badge {
+/* Background Blur */
+.hero-bg {
   position: absolute;
-  top: 10px;
-  right: 20px;
-  background: #fff;
-  color: #000;
-  font-size: 14px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-weight: 500;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('microbe.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px) brightness(0.7);
+  z-index: -1;
 }
 
-/* Stats row */
+/* Overlay for text readability */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+
+/* Centered Text */
+.hero-content {
+  z-index: 2;
+  max-width: 800px;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* Stats Section */
 .stats {
   display: flex;
   justify-content: space-around;
-  background: #ffffff;
+  background: #002a44;
   padding: 40px 20px;
   text-align: center;
-  color: #000;
+  color: #e9e9e9;
 }
 
 .stat-card h2 {
   font-size: 28px;
   margin-bottom: 6px;
+  color: #e9e9e9;
 }
 
 .stat-card p {
   font-size: 14px;
-  color: #555;
-}
-
-/* Upload section */
-.upload-section {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.upload-section h2 {
-  font-size: 30px;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 40px;
-}
-
-.upload-section p {
-  margin-bottom: 30px;
-  color: #cddfea;
-}
-
-.upload-cards {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-.upload-card {
-  background: #fff;
-  color: #000;
-  padding: 20px;
-  border-radius: 10px;
-  width: 280px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.upload-card h3 {
-  margin-bottom: 10px;
-}
-
-.upload-card p {
-  font-size: 14px;
-  margin-bottom: 15px;
-  color: #555;
-}
-
-.upload-card button {
-  background: #003b5c;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-/* Summary stats */
-.summary-stats {
-  display: flex;
-  justify-content: space-around;
-  padding: 30px 20px;
-  background: #fff;
-  margin-top: 20px;
-}
-
-.summary-card {
-  text-align: center;
-}
-
-.summary-card h3 {
-  font-size: 24px;
-  margin-bottom: 5px;
+  color: #00bcd4;
 }
 
 /* Organism table */
 .organism-table {
-  background: #e8eef5;
+  background: #ffffff;
   padding: 40px 20px;
 }
 
@@ -255,6 +197,7 @@ body {
   padding: 12px;
   border-bottom: 1px solid #ddd;
   text-align: left;
+  color: #000; /* ✅ Fix: visible table text */
 }
 
 .organism-table img {
@@ -310,6 +253,7 @@ body {
 
 .sample-card h4 {
   padding: 10px;
+  color: #121212;
 }
 
 .sample-card p {
@@ -329,4 +273,26 @@ body {
 
 .footer-section h4 {
   margin-bottom: 10px;
+  color: white;
+}
+
+.auth-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.profile-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: white;
+  object-fit: cover;
 }

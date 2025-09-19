@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark-theme">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AquaDex</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="theme.css">
+  <script src="theme.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .user-greeting {
+      margin-left: 20px;
+      font-weight: bold;
+      color: #f3f3f3;
+    }
+
+    .profile-icon {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .profile-icon img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+
+    .sign-in-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
   <!-- Navbar -->
@@ -17,27 +54,27 @@
     <nav>
       <a href="home.html" class="active">Home</a>
       <a href="analysis.html">Analysis</a>
-      <a href="#">Database</a>
-      <a href="#">History</a>
+      <a href="database.html">Database</a>
+      <a href="history.html">History</a>
       
     </nav>
-    <a href="signin.html" class="sign-in">Sign In</a>
-    
+
+    <!-- Greeting / Auth buttons -->
+    <div class="auth-controls">
+      <span id="greeting" class="user-greeting"></span>
+      <button id="signInBtn" class="sign-in-btn">Sign In</button>
+      <button id="profileBtn" class="profile-icon">
+        <img src="icon1.jpg" alt="Profile Icon" />
+      </button>
+    </div>
   </header>
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-left">
-      <h1>Smart vision for blue intelligence</h1>
-      <p>
-        "Discover the unseen ocean — AquaDex uses AI-powered microscopy to detect,
-        classify, and catalog marine microorganisms in real time, empowering
-        researchers and educators to monitor aquatic biodiversity with precision."
-      </p>
-      <a href="#" class="learn-link">Learn how it works ›</a>
-    </div>
-    <div class="hero-right">
-      <img src="microbe.png"alt="Marine organism">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Seeing the unseen in our seas</h1>
+      <p>Discover the unseen ocean — AquaDex uses AI-powered microscopy to detect, classify, and catalog marine microorganisms in real time, empowering researchers and educators to monitor aquatic biodiversity with precision.</p>
     </div>
   </section>
 
@@ -56,53 +93,6 @@
       <p>Average Confidence</p>
     </div>
   </section>
-  <!-- Upload Section -->
-<section class="upload-section">
-  <h2>Marine Organism Detection &amp; Analysis</h2>
-  <p>Upload microscopic images or capture new samples to identify marine organisms</p>
-  <div class="upload-cards">
-    <div class="upload-card">
-      <h3>Upload Microscopic Image</h3>
-      <p>Select and upload images for organism detection and analysis.</p>
-
-      <!-- Hidden file input -->
-      <input type="file" id="fileUpload" style="display:none;" onchange="document.getElementById('fileName').textContent = this.files[0]?.name || 'No file chosen';">
-
-      <!-- Custom blue button -->
-      <button onclick="document.getElementById('fileUpload').click()">Choose File</button>
-
-      <!-- File name display -->
-      <p id="fileName">No file chosen</p>
-    </div>
-
-    <div class="upload-card">
-      <h3>Capture Sample</h3>
-      <p>Connect to microscope camera to capture live samples for analysis.</p>
-      <button>Start Capture</button>
-    </div>
-  </div>
-</section>
-
-  <!-- Summary Stats -->
-  <section class="summary-stats">
-    <div class="summary-card">
-      <h3>1,247</h3>
-      <p>Total Samples</p>
-    </div>
-    <div class="summary-card">
-      <h3>8,932</h3>
-      <p>Organisms Found</p>
-    </div>
-    <div class="summary-card">
-      <h3>156</h3>
-      <p>Species Identified</p>
-    </div>
-    <div class="summary-card">
-      <h3>94.2%</h3>
-      <p>Avg Confidence</p>
-    </div>
-  </section>
-
   <!-- Organism Table -->
   <section class="organism-table">
     <div class="table-controls">
@@ -127,24 +117,24 @@
       </thead>
       <tbody>
         <tr>
-          <td><img src="https://via.placeholder.com/80" alt="Thumb"></td>
-          <td>Coscinodiscus sp.</td>
+          <td><img src="coscinodiscus.jpg" alt="Thumb"></td>
+          <td>Coscinodiscus </td>
           <td>12</td>
           <td>104 μm</td>
           <td>89%</td>
           <td>Phytoplankton</td>
         </tr>
         <tr>
-          <td><img src="https://via.placeholder.com/80" alt="Thumb"></td>
-          <td>Copepod sp.</td>
+          <td><img src="copepod.jpg" alt="Thumb"></td>
+          <td>Copepod </td>
           <td>6</td>
           <td>250 μm</td>
           <td>92%</td>
           <td>Zooplankton</td>
         </tr>
         <tr>
-          <td><img src="https://via.placeholder.com/80" alt="Thumb"></td>
-          <td>Diatom A</td>
+          <td><img src="diatomjpg.jpg" alt="Thumb"></td>
+          <td>Diatom </td>
           <td>31</td>
           <td>45 μm</td>
           <td>81%</td>
@@ -165,17 +155,17 @@
     <h2>Recent Samples</h2>
     <div class="sample-cards">
       <div class="sample-card">
-        <img src="https://via.placeholder.com/200x120" alt="Sample">
+        <img src="PlanktonSampleA.png" alt="Sample">
         <h4>Plankton Sample A</h4>
         <p>2 hours ago · 23 organisms · 96.8%</p>
       </div>
       <div class="sample-card">
-        <img src="https://via.placeholder.com/200x120" alt="Sample">
+        <img src="costalwater.png" alt="Sample">
         <h4>Coastal Water B</h4>
         <p>5 hours ago · 31 organisms · 91.4%</p>
       </div>
       <div class="sample-card">
-        <img src="https://via.placeholder.com/200x120" alt="Sample">
+        <img src="deepwater.png" alt="Sample">
         <h4>Deep Sea Sample</h4>
         <p>1 day ago · 18 organisms · 89.2%</p>
       </div>
@@ -201,5 +191,31 @@
       <p>Twitter · LinkedIn</p>
     </div>
   </footer>
+
+  <script>
+    const username = localStorage.getItem("user");
+    const greeting = document.getElementById("greeting");
+    const signInBtn = document.getElementById("signInBtn");
+    const profileBtn = document.getElementById("profileBtn");
+
+    if (username) {
+      greeting.textContent = `Welcome, ${username}`;
+      greeting.style.display = "inline-block";
+      profileBtn.style.display = "flex";
+      signInBtn.style.display = "none";
+
+      profileBtn.addEventListener("click", () => {
+        window.location.href = "profile.html";
+      });
+    } else {
+      greeting.style.display = "none";
+      profileBtn.style.display = "none";
+      signInBtn.style.display = "inline-block";
+
+      signInBtn.addEventListener("click", () => {
+        window.location.href = "signin.html";
+      });
+    }
+  </script>
 </body>
 </html>

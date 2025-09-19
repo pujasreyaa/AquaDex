@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-theme">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AquaDex - History</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="theme.css">
+<script src="theme.js" defer></script>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0a2a44;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #0a2a43;
+      border-bottom: 1px solid #2c4b65;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #00c7ff;
+    }
+
+    .logo img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex: 1;
+      justify-content: center; /* Centers the nav links */
+      
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover {
+        color: #00bcd4;
+    }
+    .nav-link.nav-link.active {
+        color: #00bcd4;
+        border-bottom: 2px solid #00bcd4;
+    }
+
+    .navbar nav a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    .nav-link.active {
+      color: #00c7ff;
+      border-bottom: 2px solid #00c7ff;
+    }
+    
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .view-all {
+      color: #00c7ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Sample Cards */
+    .samples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .sample-card {
+      background-color: #e0e7f0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      color: black;
+    }
+
+    .sample-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .sample-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .sample-info {
+      padding: 1rem;
+    }
+
+    .sample-name {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .sample-meta {
+      font-size: 0.85rem;
+      color: #444;
+      margin-bottom: 0.5rem;
+    }
+
+    .confidence {
+      font-size: 0.8rem;
+      color: #555;
+      text-align: right;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+      }
+      .section-title {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .view-all {
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Logo" />
+      <span>AquaDex</span>
+    </div>
+    <div class="nav-links">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="analysis.html" class="nav-link">Analysis</a>
+      <a href="database.html" class="nav-link">Database</a>
+      <a href="history.html" class="nav-link active">History</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="section-title">
+      <h2>Recent Samples</h2>
+      <a href="#" class="view-all">View All →</a>
+    </div>
+
+    <div class="samples-grid">
+      <!-- Sample 1 -->
+      <div class="sample-card">
+        <img src="PlanktonSampleA.png" alt="Plankton Sample A" class="sample-image" />
+        <div class="sample-info">
+          <div class="sample-name">Plankton Sample A</div>
+          <div class="sample-meta">Analyzed 2 hours ago</div>
+          <div class="sample-meta">23 organisms</div>
+          <div class="confidence">96.8% conf.</div>
+        </div>
+      </div>
+
+      <!-- Sample 2 -->
+      <div class="sample-card">
+        <img src="costalwater.png" alt="Coastal Water B" class="sample-image" />
+        <div class="sample-info">
+          <div class="sample-name">Coastal Water B</div>
+          <div class="sample-meta">Analyzed 5 hours ago</div>
+          <div class="sample-meta">31 organisms</div>
+          <div class="confidence">91.4% conf.</div>
+        </div>
+      </div>
+
+      <!-- Sample 3 -->
+      <div class="sample-card">
+        <img src="deepwater.png" alt="Deep Sea Sample" class="sample-image" />
+        <div class="sample-info">
+          <div class="sample-name">Deep Sea Sample</div>
+          <div class="sample-meta">Analyzed 1 day ago</div>
+          <div class="sample-meta">18 organisms</div>
+          <div class="confidence">89.2% conf.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

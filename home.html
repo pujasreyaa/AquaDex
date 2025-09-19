@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark-theme">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AquaDex | Home</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="styleshome.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="theme.js" defer></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Top Navigation -->
@@ -13,28 +21,30 @@
       <img src="logo.png" alt="AquaDex Logo">
       <span>AquaDex</span>
     </div>
+
     <nav>
       <a href="home.html" class="active">Home</a>
       <a href="analysis.html">Analysis</a>
-      <a href="#">Database</a>
-      <a href="#">History</a>
+      <a href="database.html">Database</a>
+      <a href="history.html">History</a>
+      
     </nav>
-    <a href="signin.html" class="sign-in">Sign In</a>
+
+  
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-left">
-      <h1>Smart vision for blue intelligence</h1>
+    <!-- Background handled via CSS -->
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+      <h1>Seeing the unseen in our seas</h1>
       <p>
-        "Discover the unseen ocean — AquaDex uses AI-powered microscopy to detect,
+        Discover the unseen ocean — AquaDex uses AI-powered microscopy to detect,
         classify, and catalog marine microorganisms in real time, empowering
-        researchers and educators to monitor aquatic biodiversity with precision."
+        researchers and educators to monitor aquatic biodiversity with precision.
       </p>
-      <a href="#" class="learn-link">Learn how it works ›</a>
-    </div>
-    <div class="hero-right">
-      <img src="microbe.png"alt="Marine organism">
     </div>
   </section>
 

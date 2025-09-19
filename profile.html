@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-theme">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AquaDex - Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #00334e;
+      --text-color: #ffffff;
+      --container-bg: #ffffff;
+      --input-bg: #ffffff;
+      --input-text: #000000;
+      --navbar-bg: #002a44;
+      --primary: #00bcd4;
+      --button-bg: #2980B9;
+      --button-hover: #3498DB;
+    }
+
+    body.dark {
+      --bg-color: #0e1f2a;
+      --text-color: #ffffff;
+      --container-bg: #1e2f40;
+      --input-bg: #2e3e4e;
+      --input-text: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: var(--navbar-bg);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--primary);
+    }
+
+    .navbar .logo img {
+      height: 42px;
+      width: 42px;
+      border-radius: 50%;
+      margin-left: 30px;
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    .navbar nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar nav a:hover {
+      color: var(--primary);
+    }
+
+    .navbar nav a.active {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 4px;
+      color: var(--primary);
+    }
+
+    .navbar .auth-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .navbar .auth-container .welcome-text {
+      color: #cfd8dc;
+      font-size: 14px;
+    }
+
+    .navbar .log-out-btn {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid #ffffff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .navbar .log-out-btn:hover {
+      background: var(--primary);
+      color: var(--navbar-bg);
+      border: 1px solid var(--primary);
+    }
+
+    .theme-toggle {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      border-radius: 6px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: var(--navbar-bg);
+      border-color: var(--primary);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 900px;
+      margin: 120px auto 40px;
+      padding: 30px;
+      background-color: var(--container-bg);
+      color: var(--input-text);
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .container h1 {
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    .container h2 {
+      margin-top: 20px;
+      font-size: 22px;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: var(--input-bg);
+      color: var(--input-text);
+    }
+
+    form button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 10px;
+      background-color: var(--button-bg);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: var(--button-hover);
+    }
+
+    .red-btn {
+      background-color: #E74C3C !important;
+    }
+
+    .red-btn:hover {
+      background-color: #c0392b !important;
+    }
+
+    /* Button spacing for multiple red buttons */
+    form button.red-btn + button.red-btn {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="logo">
+    <img src="logo.png" alt="AquaDex Logo" />
+    AquaDex
+  </div>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="analysis.html">Analysis</a>
+    <a href="database.html">Database</a>
+    <a href="history.html">History</a>
+  </nav>
+  <div class="auth-container">
+    <span class="welcome-text" id="userGreeting">Welcome, User</span>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+  <h1 id="usernameHeading">User</h1>
+
+  <h2>User Profile</h2>
+  <form id="profileForm">
+    <label for="full-name">Full Name</label>
+    <input type="text" id="full-name" placeholder="Enter Full Name"/>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" placeholder="Enter Email Address"/>
+
+    <label for="organization">Organization</label>
+    <input type="text" id="organization" placeholder="Enter Organization Name"/>
+
+    <label for="role">Role</label>
+    <input type="text" id="role" placeholder="Enter Role"/>
+
+    <label for="phone">Phone Number (Optional)</label>
+    <input type="text" id="phone" placeholder="Enter Phone Number"/>
+
+    <button type="submit">Save Changes</button>
+    <button type="button" class="red-btn" id="changePasswordBtn">Change Password</button>
+    <button type="button" class="red-btn" id="signOutBtn">Sign Out</button>
+    <button type="button" class="red-btn" id="deleteAccountBtn">Delete Account</button>
+  </form>
+</div>
+
+<script>
+  // Theme toggle
+  function toggleTheme() {
+    document.body.classList.toggle('dark');
+  }
+
+  // Load user info from localStorage
+  const username = localStorage.getItem("user");
+  if (!username) {
+    // Redirect to sign-in if not logged in
+    window.location.href = "signin.html";
+  } else {
+    document.getElementById("userGreeting").textContent = `Welcome, ${username}`;
+    document.getElementById("usernameHeading").textContent = username;
+  }
+
+  function logout() {
+    if(confirm("Are you sure you want to sign out?")) {
+      localStorage.removeItem("user");
+      window.location.href = "signin.html";
+    }
+  }
+
+  // Prevent form from submitting (no backend)
+  document.getElementById('profileForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('Changes saved (functionality not implemented).');
+  });
+
+  // Change Password button action placeholder
+  document.getElementById('changePasswordBtn').addEventListener('click', () => {
+    alert('Change Password functionality not implemented.');
+  });
+
+  // Sign Out button action (same as navbar logout)
+  document.getElementById('signOutBtn').addEventListener('click', logout);
+
+  // Delete Account button action placeholder
+  document.getElementById('deleteAccountBtn').addEventListener('click', () => {
+    if(confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+      // For now just logout and clear user
+      localStorage.removeItem("user");
+      alert('Account deleted (simulation). Redirecting to sign-in.');
+      window.location.href = "signin.html";
+    }
+  });
+  // Load saved profile data on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const savedProfile = JSON.parse(localStorage.getItem("userProfile")) || {};
+  if (savedProfile.fullName) document.getElementById("full-name").value = savedProfile.fullName;
+  if (savedProfile.email) document.getElementById("email").value = savedProfile.email;
+  if (savedProfile.organization) document.getElementById("organization").value = savedProfile.organization;
+  if (savedProfile.role) document.getElementById("role").value = savedProfile.role;
+  if (savedProfile.phone) document.getElementById("phone").value = savedProfile.phone;
+});
+
+// Override form submit to save data
+document.getElementById('profileForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const profileData = {
+    fullName: document.getElementById("full-name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    organization: document.getElementById("organization").value.trim(),
+    role: document.getElementById("role").value.trim(),
+    phone: document.getElementById("phone").value.trim()
+  };
+
+  // Save to localStorage
+  localStorage.setItem("userProfile", JSON.stringify(profileData));
+
+  alert('✅ Changes saved successfully!');
+   const savedTheme = localStorage.getItem('theme');
+    if(savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+    }
+});
+
+ 
+</script>
+
+</body>
+</html>
